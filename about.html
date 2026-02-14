@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>The Clinic | Dr. Ramya's Dentistry</title>
+    <meta name="description" content="Tour our state-of-the-art dental facility in Coimbatore. Featuring dual operatories for zero wait times and a dedicated children's play area for anxiety-free visits.">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4704F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+    
+    <style>
+        .page-header {
+            padding: 12rem 0 4rem;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1rem;
+        }
+
+        /* Cinematic Full-Bleed Image */
+        .cinematic-hero {
+            width: 100%;
+            height: 60vh;
+            min-height: 500px;
+            background-color: var(--surface-color);
+            margin-bottom: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cinematic-hero img, .cinematic-hero svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Alternating Clinic Features */
+        .clinic-feature-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            padding: 6rem 0;
+            align-items: center;
+        }
+
+        @media (min-width: 992px) {
+            .clinic-feature-row {
+                grid-template-columns: 1fr 1fr;
+                gap: 8rem;
+                padding: 8rem 0;
+            }
+            .clinic-feature-row.reverse .feature-text { order: 2; }
+            .clinic-feature-row.reverse .feature-visual { order: 1; }
+        }
+
+        .feature-visual {
+            position: relative;
+            border-radius: var(--bento-radius);
+            overflow: hidden;
+            aspect-ratio: 1 / 1; /* Perfect square for high-end editorial look */
+            background-color: var(--surface-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+        
+        html.dark-mode .feature-visual { box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
+
+        .feature-visual img, .feature-visual svg {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .clinic-feature-row:hover .feature-visual img,
+        .clinic-feature-row:hover .feature-visual svg {
+            transform: scale(1.03);
+        }
+
+        .feature-text h2 {
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+        }
+
+        .feature-text p {
+            font-size: 1.15rem;
+            color: var(--text-muted-color);
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+            line-height: 1.6;
+        }
+
+        /* The "Numbers" Mini-Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .stat-item h4 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: -0.05em;
+            color: var(--primary-accent);
+            margin-bottom: 0.25rem;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-color);
+            margin: 0;
+        }
+
+        .placeholder-svg {
+            width: 100%; height: 100%; object-fit: cover;
+            background-color: var(--surface-hover); color: var(--text-muted-color);
+        }
+    </style>
+</head>
+
+<body class="page-about">
+    <div id="header-sentinel" style="position: absolute; top: 0; height: 1px; width: 1px;"></div>
+    
+    <header class="main-header">
+        <nav class="container nav-minimal">
+            <a href="./index.html" class="logo" style="display: flex; align-items: center; gap: 8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span class="logo-text">Dr. Ramya's Dentistry</span>
+            </a>
+            
+            <ul class="nav-links" id="nav-links-menu">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./services.html">Treatments</a></li>
+                <li><a href="./about.html" class="active" aria-current="page">The Clinic</a></li>
+                <li><a href="./blog.html">Journal</a></li>
+                <li><a href="./contact.html" class="button-primary nav-contact" style="color: #fff;">Book Consultation</a></li>
+            </ul>
+            
+            <div class="nav-controls">
+                <button id="theme-toggle-btn" aria-label="Toggle theme" style="background:none; border:none; cursor:pointer; color:inherit; display:flex; align-items:center;">
+                    <span class="material-icons-outlined" id="theme-icon">dark_mode</span>
+                </button>
+                <button class="hamburger" id="hamburger-button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links-menu" style="background:none; border:none; cursor:pointer; color:inherit; display:flex; align-items:center;">
+                    <span class="material-icons-outlined" aria-hidden="true">menu</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <header class="page-header">
+            <div class="container container-narrow reveal-wrapper">
+                <h1 style="opacity: 1 !important; transform: none !important; visibility: visible !important;">Designed for Comfort.<br>Engineered for Precision.</h1>
+                <p class="lead-text" style="color: var(--text-muted-color); opacity: 1 !important; transform: none !important; visibility: visible !important;">Step into a dental environment where cutting-edge clinical efficiency meets a calming, patient-first aesthetic.</p>
+            </div>
+        </header>
+
+        <div class="cinematic-hero reveal-wrapper" style="--delay: 100ms;">
+            <svg class="placeholder-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+                <rect width="100%" height="100%" fill="currentColor" fill-opacity="0.05"/>
+                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="currentColor" opacity="0.5">Ultra-Wide Clinic Interior Shot (1600x900)</text>
+            </svg>
+        </div>
+
+        <section class="container">
+            <div class="clinic-feature-row reveal-wrapper">
+                <div class="feature-text">
+                    <h2>Dual Operatories.<br>Zero Wait Times.</h2>
+                    <p>Your time is exceptionally valuable. We deliberately engineered our facility with two independent, fully-equipped clinical operatories to maximize efficiency.</p>
+                    <p>This dual-chair architecture allows Dr. Ramya to seamlessly transition between procedures, effectively doubling our capacity to serve patients. It means your appointment starts exactly when it's supposed to—no crowded waiting rooms, no clinical delays.</p>
+                    
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <h4>2x</h4>
+                            <p>Patient Capacity</p>
+                        </div>
+                        <div class="stat-item">
+                            <h4>0</h4>
+                            <p>Wait Time Target</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <svg class="placeholder-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+                        <rect width="100%" height="100%" fill="currentColor" fill-opacity="0.05"/>
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="currentColor" opacity="0.5">Dual Chair Setup Photo</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="clinic-feature-row reverse reveal-wrapper">
+                <div class="feature-text">
+                    <h2>A Dedicated Space<br>Just for Kids.</h2>
+                    <p>Clinical anxiety often begins before a patient even sits in the dental chair. To combat this, we designed a dedicated children's play area right inside the clinic.</p>
+                    <p>Far from a sterile medical corner, this vibrant space provides a calming, distraction-rich environment. It allows children to feel safe, relaxed, and actually excited about their visit, ensuring a positive association with oral health that lasts a lifetime.</p>
+                    <div style="margin-top: 2rem;">
+                        <a href="./services.html" class="button-secondary">Explore Pediatric Care</a>
+                    </div>
+                </div>
+                <div class="feature-visual">
+                    <svg class="placeholder-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+                        <rect width="100%" height="100%" fill="currentColor" fill-opacity="0.05"/>
+                        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="20" fill="currentColor" opacity="0.5">Kids Play Area Photo</text>
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-surface" style="padding: 10rem 0; margin-top: 6rem; border-top: 1px solid var(--border-color);">
+            <div class="container text-center reveal-wrapper">
+                <span class="material-icons-outlined" style="font-size: 3rem; color: var(--primary-accent); margin-bottom: 1.5rem;" translate="no">verified_user</span>
+                <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">Meet Dr. Ramya</h2>
+                <p style="color: var(--text-muted-color); font-size: 1.2rem; max-width: 700px; margin: 0 auto 3rem; line-height: 1.7;">
+                    Combining advanced clinical expertise with a deeply empathetic approach to patient care. Dr. Ramya is committed to utilizing modern technology to make world-class dentistry accessible, painless, and highly predictable.
+                </p>
+                <a href="./contact.html" class="button-primary" style="padding: 16px 40px; font-size: 1.1rem;">Schedule Your Visit</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer minimal-footer">
+        <div class="container">
+            <div class="footer-grid-minimal">
+                <div class="footer-brand">
+                    <span class="logo-text" style="display:flex; align-items:center; gap:8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        Dr. Ramya's Dentistry
+                    </span>
+                    <p>Advanced dental care in Coimbatore.</p>
+                    <a href="tel:+918870612296" class="footer-phone">+91 88706 12296</a>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="./services.html">Treatments</a></li>
+                        <li><a href="./about.html">The Clinic</a></li>
+                        <li><a href="./blog.html">Journal</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <nav class="footer-legal-links">
+                    <span>© 2026 Dr. Ramya's Dentistry</span> |
+                    <a href="./privacy.html">Privacy Policy</a>
+                </nav>
+                <div class="agency-credit">
+                    <a href="https://adostrophe.com" target="_blank" rel="noopener">Web Experience by Adostrophe</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top-btn" aria-label="Scroll back to top">
+        <span class="material-icons-outlined" aria-hidden="true">arrow_upward</span>
+    </a>
+    
+    <script src="./script.js" defer></script>
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem("theme");
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+                document.documentElement.classList.add("dark-mode");
+            }
+        })();
+    </script>
+</body>
+</html>

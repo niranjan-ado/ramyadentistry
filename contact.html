@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Dr. Ramya's Dentistry | Advanced Dental Care in Coimbatore</title>
+    <meta name="description" content="Experience precision dentistry in a state-of-the-art environment. Specializing in Invisalign, Implants, Smile Designing, and pain-free Root Canal Treatments in Coimbatore.">
+    <meta name="author" content="Dr. Ramya's Dentistry">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4704F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+    <link rel="stylesheet" href="./style.css">
+    
+    <style>
+        /* Base secondary button style */
+        .button-secondary {
+            display: inline-block;
+            background-color: transparent;
+            color: var(--text-color);
+            padding: 14px 32px;
+            border-radius: 999px;
+            font-weight: 500;
+            border: 1px solid var(--text-muted-color);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .button-secondary:hover {
+            border-color: var(--text-color);
+            background-color: var(--text-color);
+            color: var(--background-color);
+        }
+        
+        /* Premium breathing room for CTA */
+        .premium-cta-wrapper {
+            margin-top: 5rem;
+            padding-top: 4rem;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        /* Nav controls alignment */
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        /* HERO VISIBILITY FIX: 100% height gradient to ensure white text pops */
+        .hero-overlay-gradient {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%) !important;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Force hero placeholder to be dark to simulate actual photography */
+        .hero-background .placeholder-svg {
+            background-color: #1C1C1E !important;
+            color: rgba(255,255,255,0.3) !important;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Standard SVG Placeholder styles */
+        .placeholder-svg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background-color: var(--surface-hover);
+            color: var(--text-muted-color);
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Dentist",
+        "name": "Dr. Ramya's Dentistry",
+        "image": "https://drramyasdentistry.com/assets/images/clinic-exterior.webp",
+        "@id": "https://drramyasdentistry.com",
+        "url": "https://drramyasdentistry.com",
+        "telephone": "+91-88706-12296",
+        "priceRange": "$$",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Clinic Address",
+            "addressLocality": "Coimbatore",
+            "addressRegion": "Tamil Nadu",
+            "addressCountry": "IN"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 11.0168,
+            "longitude": 76.9558
+        },
+        "openingHoursSpecification": [
+            {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "opens": "09:30",
+                "closes": "19:00"
+            }
+        ],
+        "medicalSpecialty": [
+            "Cosmetic Dentistry", 
+            "Pediatric Dentistry", 
+            "Implantology", 
+            "Endodontics", 
+            "Orthodontics"
+        ],
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Dental Treatments",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Invisalign & Aligners"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Smile Designing"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Microscope-Assisted Root Canal"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+
+<body class="page-home">
+    <div id="header-sentinel" style="position: absolute; top: 0; height: 1px; width: 1px;"></div>
+    
+    <header class="main-header">
+        <nav class="container nav-minimal">
+            <a href="./index.html" class="logo" style="display: flex; align-items: center; gap: 8px;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                </svg>
+                <span class="logo-text">Dr. Ramya's Dentistry</span>
+            </a>
+            
+            <ul class="nav-links" id="nav-links-menu">
+                <li><a href="./index.html" class="active" aria-current="page">Home</a></li>
+                <li><a href="./services.html">Treatments</a></li>
+                <li><a href="./about.html">The Clinic</a></li>
+                <li><a href="./blog.html">Journal</a></li>
+                <li><a href="./contact.html" class="button-primary nav-contact" style="color: #fff;">Book Consultation</a></li>
+            </ul>
+            
+            <div class="nav-controls">
+                <button id="theme-toggle-btn" aria-label="Toggle theme" style="background:none; border:none; cursor:pointer; color:inherit; display:flex; align-items:center;">
+                    <span class="material-icons-outlined" id="theme-icon">dark_mode</span>
+                </button>
+                
+                <button class="hamburger" id="hamburger-button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links-menu" style="background:none; border:none; cursor:pointer; color:inherit; align-items:center;">
+                    <span class="material-icons-outlined" aria-hidden="true">menu</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero-bento">
+            <div class="hero-background">
+                <svg class="placeholder-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+                    <rect width="100%" height="100%" fill="currentColor" fill-opacity="0.05"/>
+                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="currentColor" opacity="0.5">Hero Background Image Placeholder (1200x800)</text>
+                </svg>
+                <div class="hero-overlay-gradient"></div>
+            </div>
+            
+            <div class="container hero-content text-center">
+                <div class="hero-text-container">
+                    <h1 class="display-title">Precision.<br>Comfort. Clarity.</h1>
+                    <p class="lead-text">Advanced dentistry engineered for your well-being.</p>
+                    <div class="hero-actions justify-center">
+                        <a href="./contact.html" class="button-primary">Book an Appointment</a>
+                        <a href="#clinic-tour" class="button-secondary glass-effect">Step Inside</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="services-bento-section bg-surface">
+            <div class="container">
+                <div class="reveal-wrapper">
+                    <div class="section-title text-left">
+                        <h2>World-Class Treatments.</h2>
+                        <p class="section-subtitle">Comprehensive care tailored to your unique smile.</p>
+                    </div>
+                </div>
+                
+                <div class="bento-grid">
+                    <div class="reveal-wrapper bento-item item-large">
+                        <article class="bento-card">
+                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Invisalign"></a>
+                            <div class="bento-content">
+                                <h3>Invisalign & Aligners</h3>
+                                <p>The clear, comfortable path to a perfectly aligned smile.</p>
+                            </div>
+                            <svg class="placeholder-svg" style="position:absolute; bottom:0; right:0; width:70%; height:70%; border-top-left-radius: 24px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+                                <rect width="100%" height="100%" fill="currentColor" fill-opacity="0.1"/>
+                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="14" fill="currentColor" opacity="0.5">Image Placeholder</text>
+                            </svg>
+                        </article>
+                    </div>
+
+                    <div class="reveal-wrapper bento-item item-wide" style="--delay: 100ms;">
+                        <article class="bento-card">
+                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Smile Designing"></a>
+                            <div class="bento-content">
+                                <h3>Smile Designing</h3>
+                                <p>Complete aesthetic transformations.</p>
+                            </div>
+                            <span class="material-icons-outlined bento-icon" translate="no">auto_awesome</span>
+                        </article>
+                    </div>
+
+                    <div class="reveal-wrapper bento-item" style="--delay: 200ms;">
+                        <article class="bento-card">
+                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Dental Implants"></a>
+                            <div class="bento-content">
+                                <h3>Implants</h3>
+                                <p>Permanent, natural restoration.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="reveal-wrapper bento-item" style="--delay: 300ms;">
+                        <article class="bento-card">
+                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Root Canals"></a>
+                            <div class="bento-content">
+                                <h3>Root Canal</h3>
+                                <p>Microscope-assisted endodontics.</p>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="reveal-wrapper bento-item item-wide" style="--delay: 400ms;">
+                        <article class="bento-card child-dentistry-card">
+                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Child Dentistry"></a>
+                            <div class="bento-content">
+                                <h3>Child Dentistry</h3>
+                                <p>A gentle, calming approach to pediatric care.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                
+                <div class="reveal-wrapper">
+                    <div class="premium-cta-wrapper">
+                        <a href="./services.html" class="button-secondary">Explore All Treatments</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="clinic-tour" class="matterport-section">
+            <div class="container container-narrow">
+                <div class="reveal-wrapper">
+                    <div class="section-title text-center">
+                        <h2>Experience the Clinic.</h2>
+                        <p class="section-subtitle">Navigate our state-of-the-art facility in 3D.</p>
+                    </div>
+                </div>
+                <div class="reveal-wrapper" style="--delay: 200ms;">
+                    <figure class="matterport-figure bento-radius" style="background: transparent; border: 1px solid var(--border-color);">
+                        <iframe title="Matterport 3D Virtual Tour" 
+                            width="100%" height="100%" 
+                            loading="lazy"
+                            src="https://my.matterport.com/show/?m=Ps9QRL8rQYW&play=1&brand=0&dh=0" 
+                            frameborder="0" 
+                            allowfullscreen 
+                            allow="fullscreen; xr-spatial-tracking; autoplay;"
+                            style="border-radius: var(--bento-radius);">
+                        </iframe>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="testimonial-minimal bg-surface">
+            <div class="container container-narrow text-center">
+                <div class="reveal-wrapper">
+                    <blockquote class="massive-quote">
+                        "The most seamless, painless dental experience I’ve ever had. The technology and care here are truly exceptional."
+                    </blockquote>
+                    <p class="quote-author">— SARAH M., PATIENT</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer minimal-footer">
+        <div class="container">
+            <div class="footer-grid-minimal">
+                <div class="footer-brand">
+                    <span class="logo-text" style="display:flex; align-items:center; gap:8px;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        Dr. Ramya's Dentistry
+                    </span>
+                    <p>Advanced dental care in Coimbatore.</p>
+                    <a href="tel:+918870612296" class="footer-phone">+91 88706 12296</a>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="./services.html">Treatments</a></li>
+                        <li><a href="./about.html">The Clinic</a></li>
+                        <li><a href="./blog.html">Journal</a></li>
+                        <li><a href="./contact.html">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <nav class="footer-legal-links">
+                    <span>© 2026 Dr. Ramya's Dentistry</span> |
+                    <a href="./privacy.html">Privacy Policy</a>
+                </nav>
+                <div class="agency-credit">
+                    <a href="https://adostrophe.com" target="_blank" rel="noopener">Web Experience by Adostrophe</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="back-to-top" id="back-to-top-btn" aria-label="Scroll back to top">
+        <span class="material-icons-outlined" aria-hidden="true">arrow_upward</span>
+    </a>
+    
+    <script src="./script.js" defer></script>
+    
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem("theme");
+            const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+                document.documentElement.classList.add("dark-mode");
+            }
+        })();
+    </script>
+</body>
+</html>
