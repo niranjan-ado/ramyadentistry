@@ -5,11 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <title>Dr. Ramya's Dentistry | Advanced Dental Care in Coimbatore</title>
-    <meta name="description" content="Experience precision dentistry in a state-of-the-art environment. Specializing in Invisalign, Implants, Smile Designing, and pain-free Root Canal Treatments in Coimbatore.">
-    <meta name="author" content="Dr. Ramya's Dentistry">
-    <meta name="robots" content="index, follow, max-image-preview:large">
-    
+    <!-- SEO & METADATA -->
+    <title>Contact Us | Dr. Ramya's Dentistry Coimbatore</title>
+    <meta name="description" content="Book your appointment at Dr. Ramya's Dentistry, Coimbatore. Call +91 88706 12296 or visit us for Invisalign, Implants, and Advanced Dental Care.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://drramyasdentistry.com/contact.html">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://drramyasdentistry.com/contact.html">
+    <meta property="og:title" content="Book an Appointment | Dr. Ramya's Dentistry">
+    <meta property="og:description" content="Precision dentistry in Coimbatore. Schedule your consultation today.">
+    <meta property="og:image" content="https://drramyasdentistry.com/assets/social-share.jpg">
+
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4704F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path></svg>">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,138 +28,154 @@
     <link rel="stylesheet" href="./style.css">
     
     <style>
-        /* Base secondary button style */
-        .button-secondary {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--text-color);
-            padding: 14px 32px;
-            border-radius: 999px;
-            font-weight: 500;
-            border: 1px solid var(--text-muted-color);
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .button-secondary:hover {
-            border-color: var(--text-color);
-            background-color: var(--text-color);
-            color: var(--background-color);
-        }
+        /* --- PAGE SPECIFIC STYLES --- */
         
-        /* Premium breathing room for CTA */
-        .premium-cta-wrapper {
-            margin-top: 5rem;
-            padding-top: 4rem;
-            border-top: 1px solid var(--border-color);
+        /* 1. Header Adjustment */
+        .page-header {
+            padding: 10rem 0 4rem;
+            background-color: var(--surface-color);
             text-align: center;
-        }
-
-        /* Nav controls alignment */
-        .nav-controls {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-        }
-
-        /* HERO VISIBILITY FIX: 100% height gradient to ensure white text pops */
-        .hero-overlay-gradient {
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.4) 100%) !important;
-            pointer-events: none;
-            z-index: 1;
+            border-bottom: 1px solid var(--border-color);
         }
         
-        /* Force hero placeholder to be dark to simulate actual photography */
-        .hero-background .placeholder-svg {
-            background-color: #1C1C1E !important;
-            color: rgba(255,255,255,0.3) !important;
-        }
+        /* 2. Contact Layout */
+        .contact-section { padding: 6rem 0; }
         
-        .hero-content {
-            position: relative;
-            z-index: 2;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
         }
 
-        /* Standard SVG Placeholder styles */
-        .placeholder-svg {
-            width: 100%;
+        /* Left Column: Info & Map */
+        .contact-info-card {
+            background: var(--surface-color);
+            border-radius: var(--bento-radius);
+            padding: 3rem;
+            border: 1px solid var(--border-color);
             height: 100%;
-            object-fit: cover;
-            background-color: var(--surface-hover);
-            color: var(--text-muted-color);
+            display: flex; flex-direction: column; gap: 3rem;
+        }
+
+        .info-block h3 {
+            font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;
+            color: var(--text-muted-color); margin-bottom: 0.75rem;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        
+        .info-block p, .info-block a {
+            font-size: 1.25rem; font-weight: 500; color: var(--text-color);
+            line-height: 1.4; transition: color 0.2s;
+        }
+        .info-block a:hover { color: var(--primary-accent); }
+
+        .map-container {
+            width: 100%; height: 300px;
+            border-radius: 16px; overflow: hidden;
+            border: 1px solid var(--border-color);
+            margin-top: auto; /* Push to bottom */
+        }
+
+        /* Right Column: Form */
+        .form-card {
+            background: var(--background-color);
+            padding: 1rem;
+        }
+
+        .premium-form { display: flex; flex-direction: column; gap: 1.5rem; }
+        
+        .form-group label {
+            display: block; font-size: 0.9rem; font-weight: 600;
+            margin-bottom: 0.5rem; color: var(--text-color);
+        }
+        
+        .premium-input, .premium-select, .premium-textarea {
+            width: 100%;
+            background-color: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            font-family: inherit; font-size: 1rem;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            appearance: none;
+        }
+
+        .premium-textarea { min-height: 150px; resize: vertical; }
+
+        .premium-input:focus, .premium-select:focus, .premium-textarea:focus {
+            outline: none;
+            background-color: var(--background-color);
+            border-color: var(--primary-accent);
+            box-shadow: 0 0 0 4px rgba(196, 112, 79, 0.1);
+        }
+
+        /* Conversion Elements (Copied from Index) */
+        .whatsapp-float {
+            position: fixed; bottom: 2rem; right: 2rem;
+            width: 60px; height: 60px; background-color: #25D366; color: white;
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        
+        .mobile-sticky-bar {
+            display: none; position: fixed; bottom: 0; left: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px);
+            border-top: 1px solid var(--border-color); padding: 12px 16px;
+            z-index: 9999; gap: 12px;
+        }
+        .sticky-btn {
+            flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
+            padding: 12px; border-radius: 8px; font-weight: 600; font-size: 0.95rem; text-decoration: none;
+        }
+        .sticky-btn.call { background: var(--surface-color); color: var(--text-color); border: 1px solid var(--border-color); }
+        .sticky-btn.whatsapp { background: #25D366; color: white; }
+
+        @media (min-width: 992px) {
+            .contact-grid { grid-template-columns: 1fr 1.5fr; gap: 6rem; }
+            .form-card { padding: 2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-sticky-bar { display: flex; }
+            .whatsapp-float { bottom: 5.5rem; }
+            .main-footer { padding-bottom: 6rem; }
+            .page-header h1 { font-size: 2.5rem; }
         }
     </style>
 
+    <!-- SCHEMA: ContactPage -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Dentist",
-        "name": "Dr. Ramya's Dentistry",
-        "image": "https://drramyasdentistry.com/assets/images/clinic-exterior.webp",
-        "@id": "https://drramyasdentistry.com",
-        "url": "https://drramyasdentistry.com",
-        "telephone": "+91-88706-12296",
-        "priceRange": "$$",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Clinic Address",
-            "addressLocality": "Coimbatore",
-            "addressRegion": "Tamil Nadu",
-            "addressCountry": "IN"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 11.0168,
-            "longitude": 76.9558
-        },
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-                "opens": "09:30",
-                "closes": "19:00"
+        "@type": "ContactPage",
+        "mainEntity": {
+            "@type": "Dentist",
+            "name": "Dr. Ramya's Dentistry",
+            "image": "https://drramyasdentistry.com/assets/images/clinic-exterior.webp",
+            "telephone": "+91-88706-12296",
+            "email": "contact@drramyasdentistry.com",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Update Street Address Here",
+                "addressLocality": "Coimbatore",
+                "addressRegion": "Tamil Nadu",
+                "postalCode": "641001",
+                "addressCountry": "IN"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 11.0168,
+                "longitude": 76.9558
             }
-        ],
-        "medicalSpecialty": [
-            "Cosmetic Dentistry", 
-            "Pediatric Dentistry", 
-            "Implantology", 
-            "Endodontics", 
-            "Orthodontics"
-        ],
-        "hasOfferCatalog": {
-            "@type": "OfferCatalog",
-            "name": "Dental Treatments",
-            "itemListElement": [
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Invisalign & Aligners"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Smile Designing"
-                    }
-                },
-                {
-                    "@type": "Offer",
-                    "itemOffered": {
-                        "@type": "Service",
-                        "name": "Microscope-Assisted Root Canal"
-                    }
-                }
-            ]
         }
     }
     </script>
 </head>
 
-<body class="page-home">
+<body class="page-contact">
     <div id="header-sentinel" style="position: absolute; top: 0; height: 1px; width: 1px;"></div>
     
     <header class="main-header">
@@ -164,11 +188,11 @@
             </a>
             
             <ul class="nav-links" id="nav-links-menu">
-                <li><a href="./index.html" class="active" aria-current="page">Home</a></li>
+                <li><a href="./index.html">Home</a></li>
                 <li><a href="./services.html">Treatments</a></li>
                 <li><a href="./about.html">The Clinic</a></li>
                 <li><a href="./blog.html">Journal</a></li>
-                <li><a href="./contact.html" class="button-primary nav-contact" style="color: #fff;">Book Consultation</a></li>
+                <li><a href="./contact.html" class="active button-primary nav-contact" style="color: #fff;">Book Consultation</a></li>
             </ul>
             
             <div class="nav-controls">
@@ -176,7 +200,7 @@
                     <span class="material-icons-outlined" id="theme-icon">dark_mode</span>
                 </button>
                 
-                <button class="hamburger" id="hamburger-button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links-menu" style="background:none; border:none; cursor:pointer; color:inherit; align-items:center;">
+                <button class="hamburger" id="hamburger-button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links-menu" style="background:none; border:none; cursor:pointer; color:inherit; display:flex; align-items:center;">
                     <span class="material-icons-outlined" aria-hidden="true">menu</span>
                 </button>
             </div>
@@ -184,132 +208,107 @@
     </header>
     
     <main>
-        <section class="hero-bento">
-            <div class="hero-background">
-                <svg class="placeholder-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
-                    <rect width="100%" height="100%" fill="currentColor" fill-opacity="0.05"/>
-                    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="24" fill="currentColor" opacity="0.5">Hero Background Image Placeholder (1200x800)</text>
-                </svg>
-                <div class="hero-overlay-gradient"></div>
-            </div>
-            
-            <div class="container hero-content text-center">
-                <div class="hero-text-container">
-                    <h1 class="display-title">Precision.<br>Comfort. Clarity.</h1>
-                    <p class="lead-text">Advanced dentistry engineered for your well-being.</p>
-                    <div class="hero-actions justify-center">
-                        <a href="./contact.html" class="button-primary">Book an Appointment</a>
-                        <a href="#clinic-tour" class="button-secondary glass-effect">Step Inside</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="services-bento-section bg-surface">
-            <div class="container">
-                <div class="reveal-wrapper">
-                    <div class="section-title text-left">
-                        <h2>World-Class Treatments.</h2>
-                        <p class="section-subtitle">Comprehensive care tailored to your unique smile.</p>
-                    </div>
-                </div>
-                
-                <div class="bento-grid">
-                    <div class="reveal-wrapper bento-item item-large">
-                        <article class="bento-card">
-                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Invisalign"></a>
-                            <div class="bento-content">
-                                <h3>Invisalign & Aligners</h3>
-                                <p>The clear, comfortable path to a perfectly aligned smile.</p>
-                            </div>
-                            <svg class="placeholder-svg" style="position:absolute; bottom:0; right:0; width:70%; height:70%; border-top-left-radius: 24px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
-                                <rect width="100%" height="100%" fill="currentColor" fill-opacity="0.1"/>
-                                <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="sans-serif" font-size="14" fill="currentColor" opacity="0.5">Image Placeholder</text>
-                            </svg>
-                        </article>
-                    </div>
-
-                    <div class="reveal-wrapper bento-item item-wide" style="--delay: 100ms;">
-                        <article class="bento-card">
-                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Smile Designing"></a>
-                            <div class="bento-content">
-                                <h3>Smile Designing</h3>
-                                <p>Complete aesthetic transformations.</p>
-                            </div>
-                            <span class="material-icons-outlined bento-icon" translate="no">auto_awesome</span>
-                        </article>
-                    </div>
-
-                    <div class="reveal-wrapper bento-item" style="--delay: 200ms;">
-                        <article class="bento-card">
-                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Dental Implants"></a>
-                            <div class="bento-content">
-                                <h3>Implants</h3>
-                                <p>Permanent, natural restoration.</p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="reveal-wrapper bento-item" style="--delay: 300ms;">
-                        <article class="bento-card">
-                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Root Canals"></a>
-                            <div class="bento-content">
-                                <h3>Root Canal</h3>
-                                <p>Microscope-assisted endodontics.</p>
-                            </div>
-                        </article>
-                    </div>
-
-                    <div class="reveal-wrapper bento-item item-wide" style="--delay: 400ms;">
-                        <article class="bento-card child-dentistry-card">
-                            <a href="./services.html" class="card-link-overlay" aria-label="Learn about Child Dentistry"></a>
-                            <div class="bento-content">
-                                <h3>Child Dentistry</h3>
-                                <p>A gentle, calming approach to pediatric care.</p>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-                
-                <div class="reveal-wrapper">
-                    <div class="premium-cta-wrapper">
-                        <a href="./services.html" class="button-secondary">Explore All Treatments</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="clinic-tour" class="matterport-section">
+        <!-- PAGE HEADER -->
+        <section class="page-header">
             <div class="container container-narrow">
                 <div class="reveal-wrapper">
-                    <div class="section-title text-center">
-                        <h2>Experience the Clinic.</h2>
-                        <p class="section-subtitle">Navigate our state-of-the-art facility in 3D.</p>
-                    </div>
-                </div>
-                <div class="reveal-wrapper" style="--delay: 200ms;">
-                    <figure class="matterport-figure bento-radius" style="background: transparent; border: 1px solid var(--border-color);">
-                        <iframe title="Matterport 3D Virtual Tour" 
-                            width="100%" height="100%" 
-                            loading="lazy"
-                            src="https://my.matterport.com/show/?m=Ps9QRL8rQYW&play=1&brand=0&dh=0" 
-                            frameborder="0" 
-                            allowfullscreen 
-                            allow="fullscreen; xr-spatial-tracking; autoplay;"
-                            style="border-radius: var(--bento-radius);">
-                        </iframe>
-                    </figure>
+                    <h1 class="display-title" style="color: var(--text-color);">Get in Touch.</h1>
+                    <p class="lead-text" style="color: var(--text-muted-color);">Ready to transform your smile? We are here to help.</p>
                 </div>
             </div>
         </section>
 
-        <section class="testimonial-minimal bg-surface">
-            <div class="container container-narrow text-center">
-                <div class="reveal-wrapper">
-                    <blockquote class="massive-quote">
-                        "The most seamless, painless dental experience I’ve ever had. The technology and care here are truly exceptional."
-                    </blockquote>
-                    <p class="quote-author">— SARAH M., PATIENT</p>
+        <!-- CONTACT GRID -->
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    
+                    <!-- LEFT: INFO & MAP -->
+                    <div class="reveal-wrapper">
+                        <div class="contact-info-card">
+                            <div class="info-block">
+                                <h3><span class="material-icons-outlined">location_on</span> Visit Us</h3>
+                                <p>Dr. Ramya's Dentistry<br>Coimbatore, Tamil Nadu<br>India</p>
+                            </div>
+                            
+                            <div class="info-block">
+                                <h3><span class="material-icons-outlined">call</span> Call Us</h3>
+                                <a href="tel:+918870612296">+91 88706 12296</a>
+                                <p style="font-size: 0.9rem; color: var(--text-muted-color); margin-top: 0.5rem;">Mon - Sat: 9:30 AM - 8:00 PM</p>
+                            </div>
+                            
+                            <div class="info-block">
+                                <h3><span class="material-icons-outlined">email</span> Email</h3>
+                                <a href="mailto:contact@drramyasdentistry.com">contact@drramyasdentistry.com</a>
+                            </div>
+
+                            <!-- GOOGLE MAP EMBED -->
+                            <div class="map-container">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.256639649438!2d76.9536113148008!3d11.019361992157142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8f759412e3c59%3A0x43c5dcad7905af21!2sDr.%20Ramya's%20Dentistry!5e0!3m2!1sen!2sin!4v1625000000000!5m2!1sen!2sin" 
+                                    width="100%" 
+                                    height="100%" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy" 
+                                    referrerpolicy="no-referrer-when-downgrade"
+                                    title="Dr. Ramya's Dentistry Location">
+                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- RIGHT: FORM -->
+                    <div class="reveal-wrapper" style="--delay: 200ms;">
+                        <div class="form-card">
+                            <h2 style="margin-bottom: 2rem;">Request a Consultation</h2>
+                            
+                            <!-- IMPORTANT: Replace ACTION with your Formspree/Netlify URL -->
+                            <form action="https://formspree.io/f/YOUR_FORM_ID_HERE" method="POST" class="premium-form">
+                                
+                                <div class="form-group">
+                                    <label for="name">Full Name</label>
+                                    <input type="text" id="name" name="name" class="premium-input" placeholder="e.g. Aditi Sharma" required>
+                                </div>
+
+                                <div class="form-group" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                                    <div>
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" name="phone" class="premium-input" placeholder="+91 98765 43210" required>
+                                    </div>
+                                    <div>
+                                        <label for="email">Email Address</label>
+                                        <input type="email" id="email" name="email" class="premium-input" placeholder="name@example.com">
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="treatment">Interested Treatment</label>
+                                    <select id="treatment" name="treatment" class="premium-select">
+                                        <option value="General Consultation">General Consultation</option>
+                                        <option value="Invisalign">Invisalign / Aligners</option>
+                                        <option value="Implants">Dental Implants</option>
+                                        <option value="Smile Design">Smile Designing</option>
+                                        <option value="Root Canal">Root Canal Treatment</option>
+                                        <option value="Child Dentistry">Child Dentistry</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message">Message (Optional)</label>
+                                    <textarea id="message" name="message" class="premium-textarea" placeholder="Tell us about your dental concerns..."></textarea>
+                                </div>
+
+                                <button type="submit" class="button-primary" style="width: 100%; justify-content: center; font-size: 1.1rem;">
+                                    Confirm Appointment Request
+                                </button>
+                                <p style="font-size: 0.85rem; color: var(--text-muted-color); text-align: center; margin-top: 1rem;">
+                                    Our team will contact you shortly to confirm the slot.
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
@@ -349,6 +348,25 @@
             </div>
         </div>
     </footer>
+
+    <!-- 1. FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/918870612296?text=Hi%20Dr.%20Ramya,%20I%20would%20like%20to%20book%20an%20appointment." target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+        <svg class="whatsapp-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <!-- 2. MOBILE STICKY BOTTOM BAR -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+918870612296" class="sticky-btn call">
+            <span class="material-icons-outlined">call</span>
+            Call Now
+        </a>
+        <a href="https://wa.me/918870612296?text=Hi%20Dr.%20Ramya,%20I%20would%20like%20to%20book%20an%20appointment." class="sticky-btn whatsapp">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            WhatsApp
+        </a>
+    </div>
 
     <a href="#" class="back-to-top" id="back-to-top-btn" aria-label="Scroll back to top">
         <span class="material-icons-outlined" aria-hidden="true">arrow_upward</span>

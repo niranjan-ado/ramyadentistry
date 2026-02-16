@@ -1,7 +1,14 @@
 /**
  * Dr. Ramya's Dentistry - Core JavaScript
- * High-performance, zero-dependency vanilla JS.
- * Engineered for 60fps rendering and smooth interaction.
+ * Version: 2.0 (Production Ready)
+ * 
+ * Features:
+ * 1. Dark/Light Mode with LocalStorage persistence
+ * 2. Mobile Navigation (Hamburger) with Scroll Locking
+ * 3. Sticky Header (Performance-optimized with IntersectionObserver)
+ * 4. Scroll Reveal Animations (60fps)
+ * 5. Matterport 3D Tour "Facade" (Data Saver)
+ * 6. Back-to-Top Button logic
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,30 +22,35 @@ document.addEventListener('DOMContentLoaded', () => {
         const themeIcon = document.getElementById('theme-icon');
         const htmlElement = document.documentElement;
         
-        // Helper to set the correct icon text (Material Icons)
+        // Helper: Update the icon based on current state
         const updateIcon = (isDark) => {
-            // If dark mode is active, show the 'light_mode' (Sun) icon
-            themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            if (themeIcon) {
+                themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
+            }
         };
 
-        // 1. Check state on load (handled partially by inline script in HTML, but we sync icon here)
-        if (htmlElement.classList.contains('dark-mode')) {
+        // 1. Check LocalStorage on load (Persistence)
+        const savedTheme = localStorage.getItem("theme");
+        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+            htmlElement.classList.add("dark-mode");
             updateIcon(true);
+        } else {
+            updateIcon(false);
         }
 
-        // 2. Event Listener
+        // 2. Click Event Listener
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => {
-                // Toggle class
+                // Toggle Class
                 htmlElement.classList.toggle('dark-mode');
                 
                 // Check new state
                 const isDark = htmlElement.classList.contains('dark-mode');
                 
-                // Update Icon
+                // Update Icon & Storage
                 updateIcon(isDark);
-                
-                // Save preference to LocalStorage
                 localStorage.setItem('theme', isDark ? 'dark' : 'light');
             });
         }
@@ -53,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const navMenu = document.getElementById('nav-links-menu');
         const sentinel = document.getElementById('header-sentinel');
 
-        // --- Sticky Header Logic (using IntersectionObserver for performance) ---
+        // --- Sticky Header (IntersectionObserver) ---
+        // We watch a 1px invisible element at the top. When it leaves the screen, we shrink the header.
         if (header && sentinel) {
             const observer = new IntersectionObserver(([entry]) => {
-                // If the sentinel (top pixel) is NOT visible, we are scrolled down
                 if (!entry.isIntersecting) {
                     header.classList.add('scrolled');
                 } else {
@@ -72,12 +84,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const toggleMenu = () => {
                 const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
                 
-                // Toggle Attributes
+                // Toggle State
                 hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
                 hamburgerBtn.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 
-                // Toggle Scroll Lock on Body
+                // Lock Body Scroll (Prevent background scrolling when menu is open)
                 document.body.style.overflow = !isExpanded ? 'hidden' : '';
 
                 // Toggle Icon (Menu <-> Close)
@@ -93,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 toggleMenu();
             });
 
-            // Close menu when clicking a link
+            // Close menu when clicking ANY link
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('active')) toggleMenu();
@@ -112,10 +124,37 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // =========================================================================
-    // 3. SCROLL REVEAL ANIMATIONS (Intersection Observer)
+    // 3. MATTERPORT FACADE (Performance Optimization)
+    // =========================================================================
+    const initMatterportFacade = () => {
+        const facade = document.querySelector('.matterport-facade');
+        const iframe = document.getElementById('matterport-frame');
+
+        if (facade && iframe) {
+            facade.addEventListener('click', () => {
+                // 1. Get the real URL from data-src
+                const src = iframe.getAttribute('data-src');
+                
+                if (src) {
+                    // 2. Load the heavy iframe
+                    iframe.setAttribute('src', src);
+                    
+                    // 3. Animate the facade out
+                    facade.style.opacity = '0';
+                    
+                    // 4. Remove facade from DOM after animation completes
+                    setTimeout(() => {
+                        facade.style.display = 'none';
+                    }, 500);
+                }
+            });
+        }
+    };
+
+    // =========================================================================
+    // 4. SCROLL REVEAL ANIMATIONS
     // =========================================================================
     const initScrollAnimations = () => {
-        // Select all wrappers that need animating
         const revealElements = document.querySelectorAll('.reveal-wrapper');
         
         if (revealElements.length === 0) return;
@@ -123,23 +162,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const revealObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    // Add the class that triggers CSS transform/opacity
                     entry.target.classList.add('visible');
-                    // Stop observing once revealed (performance optimization)
-                    observer.unobserve(entry.target);
+                    observer.unobserve(entry.target); // Stop watching once revealed
                 }
             });
         }, {
             root: null,
-            threshold: 0.15, // Trigger when 15% of element is visible
-            rootMargin: '0px 0px -50px 0px' // Offset slightly to trigger before bottom
+            threshold: 0.15, // Trigger when 15% visible
+            rootMargin: '0px 0px -50px 0px'
         });
 
         revealElements.forEach(el => revealObserver.observe(el));
     };
 
     // =========================================================================
-    // 4. BACK TO TOP BUTTON
+    // 5. BACK TO TOP BUTTON
     // =========================================================================
     const initBackToTop = () => {
         const backToTopBtn = document.getElementById('back-to-top-btn');
@@ -147,8 +184,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (!backToTopBtn || !sentinel) return;
 
-        // Show/Hide button based on scroll position
         const observer = new IntersectionObserver(([entry]) => {
+            // Show button only when we have scrolled past the header
             if (!entry.isIntersecting) {
                 backToTopBtn.classList.add('visible');
             } else {
@@ -158,7 +195,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         observer.observe(sentinel);
 
-        // Smooth Scroll to top
         backToTopBtn.addEventListener('click', (e) => {
             e.preventDefault();
             window.scrollTo({
@@ -173,6 +209,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     initThemeToggle();
     initNavigation();
+    initMatterportFacade();
     initScrollAnimations();
     initBackToTop();
 });
