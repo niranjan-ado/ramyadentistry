@@ -1,76 +1,70 @@
 /**
- * Dr. Ramya's Dentistry - Core JavaScript
- * Version: 2.1 (Final Production Build)
+ * Dr. Ramya's Dentistry - Core Logic
+ * Version: 3.0 (Performance & Motion Optimized)
  * 
- * Features:
- * 1. Dark/Light Mode (Syncs with inline HTML script)
- * 2. Mobile Navigation (Hamburger) with Scroll Locking
- * 3. Sticky Header (Performance-optimized with IntersectionObserver)
- * 4. Scroll Reveal Animations (60fps)
- * 5. Matterport 3D Tour "Facade" (Data Saver)
- * 6. Back-to-Top Button logic
+ * Strategy:
+ * - No 'scroll' event listeners (uses IntersectionObserver for 60fps)
+ * - Defer heavy assets (Matterport) until interaction
+ * - Sync Dark Mode state with LocalStorage
  */
 
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
     // =========================================================================
-    // 1. THEME TOGGLE (Dark/Light Mode)
+    // 1. THEME ENGINE (Dark/Light Mode)
     // =========================================================================
     const initThemeToggle = () => {
         const toggleBtn = document.getElementById('theme-toggle-btn');
         const themeIcon = document.getElementById('theme-icon');
         const htmlElement = document.documentElement;
         
-        // Helper: Update the icon based on current state
+        // Helper: Update the Material Icon based on state
         const updateIcon = (isDark) => {
             if (themeIcon) {
+                // 'dark_mode' icon for dark state (moon), 'light_mode' for light state (sun)
+                // Logic inverted: If it's dark, show 'light_mode' icon (sun) to switch to light
+                // If it's light, show 'dark_mode' icon (moon) to switch to dark
                 themeIcon.textContent = isDark ? 'light_mode' : 'dark_mode';
             }
         };
 
-        // 1. Check LocalStorage on load (Persistence)
-        // Note: The inline script in HTML handles the initial class add to prevent flash.
-        // This JS ensures the ICON matches that state.
-        const savedTheme = localStorage.getItem("theme");
-        const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        // 1. Initial State Check (Syncs with the inline script in HTML)
+        const currentTheme = localStorage.getItem('theme');
+        const systemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDarkInitial = currentTheme === 'dark' || (!currentTheme && systemDark);
         
-        if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
-            htmlElement.classList.add("dark-mode");
-            updateIcon(true);
-        } else {
-            updateIcon(false);
-        }
+        // Ensure icon matches the state set by inline HTML script
+        updateIcon(isDarkInitial);
 
-        // 2. Click Event Listener
+        // 2. Click Handler
         if (toggleBtn) {
             toggleBtn.addEventListener('click', () => {
-                // Toggle Class
+                // Toggle CSS Class
                 htmlElement.classList.toggle('dark-mode');
                 
-                // Check new state
-                const isDark = htmlElement.classList.contains('dark-mode');
+                const isDarkNow = htmlElement.classList.contains('dark-mode');
                 
                 // Update Icon & Storage
-                updateIcon(isDark);
-                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                updateIcon(isDarkNow);
+                localStorage.setItem('theme', isDarkNow ? 'dark' : 'light');
             });
         }
     };
 
     // =========================================================================
-    // 2. DYNAMIC HEADER & MOBILE NAVIGATION
+    // 2. SMART NAVIGATION (Sticky + Mobile)
     // =========================================================================
     const initNavigation = () => {
         const header = document.querySelector('.main-header');
+        const sentinel = document.getElementById('header-sentinel');
         const hamburgerBtn = document.getElementById('hamburger-button');
         const navMenu = document.getElementById('nav-links-menu');
-        const sentinel = document.getElementById('header-sentinel');
 
-        // --- Sticky Header (IntersectionObserver) ---
-        // We watch a 1px invisible element at the top. When it leaves the screen, we shrink the header.
+        // A. Sticky Header Logic (IntersectionObserver)
+        // Watch the pixel at top of body. When it leaves viewport, shrink header.
         if (header && sentinel) {
-            const observer = new IntersectionObserver(([entry]) => {
+            const stickyObserver = new IntersectionObserver(([entry]) => {
                 if (!entry.isIntersecting) {
                     header.classList.add('scrolled');
                 } else {
@@ -78,43 +72,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }, { rootMargin: '0px', threshold: 0 });
 
-            observer.observe(sentinel);
+            stickyObserver.observe(sentinel);
         }
 
-        // --- Mobile Menu Logic ---
+        // B. Mobile Menu Logic
         if (hamburgerBtn && navMenu) {
             const toggleMenu = () => {
                 const isExpanded = hamburgerBtn.getAttribute('aria-expanded') === 'true';
                 
-                // Toggle State
+                // Toggle Classes
                 hamburgerBtn.setAttribute('aria-expanded', !isExpanded);
                 hamburgerBtn.classList.toggle('active');
                 navMenu.classList.toggle('active');
                 
-                // Lock Body Scroll (Prevent background scrolling when menu is open)
+                // Lock Body Scroll to prevent background moving
                 document.body.style.overflow = !isExpanded ? 'hidden' : '';
 
-                // Toggle Icon (Menu <-> Close)
+                // Toggle Icon
                 const iconSpan = hamburgerBtn.querySelector('span');
                 if (iconSpan) {
                     iconSpan.textContent = !isExpanded ? 'close' : 'menu';
                 }
             };
 
-            // Click Handler
+            // Trigger
             hamburgerBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 toggleMenu();
             });
 
-            // Close menu when clicking ANY link
+            // Close when clicking a link
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     if (navMenu.classList.contains('active')) toggleMenu();
                 });
             });
 
-            // Close menu when clicking outside
+            // Close when clicking outside
             document.addEventListener('click', (e) => {
                 if (navMenu.classList.contains('active') && 
                     !navMenu.contains(e.target) && 
@@ -126,7 +120,34 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // =========================================================================
-    // 3. MATTERPORT FACADE (Performance Optimization)
+    // 3. SCROLL REVEAL ANIMATIONS (Performance Optimized)
+    // =========================================================================
+    const initScrollAnimations = () => {
+        // Select all elements wrapped in .reveal-wrapper
+        const elements = document.querySelectorAll('.reveal-wrapper');
+        
+        if (elements.length === 0) return;
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Add class to trigger CSS transform
+                    entry.target.classList.add('visible');
+                    // Stop watching this element (Save resources)
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            root: null,
+            threshold: 0.1, // Trigger when 10% visible
+            rootMargin: '0px 0px -50px 0px' // Offset slightly so it triggers before bottom
+        });
+
+        elements.forEach(el => revealObserver.observe(el));
+    };
+
+    // =========================================================================
+    // 4. MATTERPORT "FACADE" (Data Saver)
     // =========================================================================
     const initMatterportFacade = () => {
         const facade = document.querySelector('.matterport-facade');
@@ -134,17 +155,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (facade && iframe) {
             facade.addEventListener('click', () => {
-                // 1. Get the real URL from data-src
+                // 1. Retrieve the real URL
                 const src = iframe.getAttribute('data-src');
                 
                 if (src) {
-                    // 2. Load the heavy iframe
+                    // 2. Inject URL into iframe (Begins loading 3D tour)
                     iframe.setAttribute('src', src);
                     
-                    // 3. Animate the facade out
+                    // 3. Fade out the cover image
                     facade.style.opacity = '0';
+                    facade.style.pointerEvents = 'none';
                     
-                    // 4. Remove facade from DOM after animation completes
+                    // 4. Cleanup DOM
                     setTimeout(() => {
                         facade.style.display = 'none';
                     }, 500);
@@ -154,55 +176,28 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // =========================================================================
-    // 4. SCROLL REVEAL ANIMATIONS
-    // =========================================================================
-    const initScrollAnimations = () => {
-        const revealElements = document.querySelectorAll('.reveal-wrapper');
-        
-        if (revealElements.length === 0) return;
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target); // Stop watching once revealed
-                }
-            });
-        }, {
-            root: null,
-            threshold: 0.15, // Trigger when 15% visible
-            rootMargin: '0px 0px -50px 0px'
-        });
-
-        revealElements.forEach(el => revealObserver.observe(el));
-    };
-
-    // =========================================================================
     // 5. BACK TO TOP BUTTON
     // =========================================================================
     const initBackToTop = () => {
-        const backToTopBtn = document.getElementById('back-to-top-btn');
+        const btn = document.getElementById('back-to-top-btn');
         const sentinel = document.getElementById('header-sentinel');
 
-        if (!backToTopBtn || !sentinel) return;
+        if (!btn || !sentinel) return;
 
-        const observer = new IntersectionObserver(([entry]) => {
-            // Show button only when we have scrolled past the header
+        // Show button only when passed the header
+        const btnObserver = new IntersectionObserver(([entry]) => {
             if (!entry.isIntersecting) {
-                backToTopBtn.classList.add('visible');
+                btn.classList.add('visible');
             } else {
-                backToTopBtn.classList.remove('visible');
+                btn.classList.remove('visible');
             }
         }, { rootMargin: '0px', threshold: 0 });
 
-        observer.observe(sentinel);
+        btnObserver.observe(sentinel);
 
-        backToTopBtn.addEventListener('click', (e) => {
+        btn.addEventListener('click', (e) => {
             e.preventDefault();
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     };
 
@@ -211,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     initThemeToggle();
     initNavigation();
-    initMatterportFacade();
     initScrollAnimations();
+    initMatterportFacade();
     initBackToTop();
 });
