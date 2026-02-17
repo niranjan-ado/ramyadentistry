@@ -449,8 +449,6 @@ html.dark-mode .play-button-circle { background: rgba(40,40,40,0.9); }
    13. CONVERSION ELEMENTS (Mobile Sticky Bar)
    ========================================= */
 
-/* NOTE: Floating WhatsApp button removed as requested */
-
 /* Mobile Sticky Bottom Bar (Hidden on Desktop) */
 .mobile-sticky-bar {
     display: none; /* Default hidden */
@@ -458,10 +456,9 @@ html.dark-mode .play-button-circle { background: rgba(40,40,40,0.9); }
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
     border-top: 1px solid var(--border-color);
-    padding: 12px 16px;
+    padding: 16px 24px; /* Slightly increased padding for the single button */
     z-index: 9999;
     box-shadow: 0 -4px 20px rgba(0,0,0,0.05);
-    gap: 12px;
 }
 
 /* Dark Mode for Sticky Bar */
@@ -471,24 +468,24 @@ html.dark-mode .mobile-sticky-bar {
 }
 
 .sticky-btn {
-    flex: 1;
+    width: 100%; /* Force full width */
     display: flex; align-items: center; justify-content: center; gap: 8px;
-    padding: 12px;
-    border-radius: 12px;
-    font-weight: 600; font-size: 0.95rem;
+    padding: 14px; /* Taller touch target */
+    border-radius: 999px; /* Pill shape matches your primary buttons */
+    font-weight: 600; font-size: 1.05rem;
     text-decoration: none;
-    transition: background 0.2s;
+    transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .sticky-btn.call {
-    background: var(--surface-color);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
+    background: var(--primary-accent); /* Use your brand color instead of grey */
+    color: #ffffff;
+    border: none;
+    box-shadow: 0 4px 12px rgba(196, 112, 79, 0.3);
 }
-.sticky-btn.whatsapp {
-    background: var(--whatsapp-green);
-    color: white;
-    border: 1px solid var(--whatsapp-green);
+
+.sticky-btn.call:active {
+    transform: scale(0.98);
 }
 
 /* =========================================
