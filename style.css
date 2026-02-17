@@ -1,6 +1,6 @@
 /* ========================================================================
    DR. RAMYA'S DENTISTRY - MAIN STYLESHEET
-   Version: 2.0 (Production Ready)
+   Version: 2.1 (Optimized & Cleaned)
    Context: Premium Medical / Indian Market Optimized
    ======================================================================== */
 
@@ -8,7 +8,7 @@
    1. PREMIUM VARIABLES (The "Apple" Palette)
    ========================================= */
 :root {
-    /* Brand Identity: Elegant Copper */
+    /* Brand Identity: Elegant Copper/Gold (Matches the 'R' Logo) */
     --primary-accent: #C4704F; 
     --primary-hover: #A35A3D;
     
@@ -63,12 +63,21 @@ html {
     background-color: var(--background-color);
 }
 
+/* BRANDING OPTIMIZATION: Custom Selection Color */
+::selection {
+    background: var(--primary-accent);
+    color: #ffffff;
+}
+::-moz-selection {
+    background: var(--primary-accent);
+    color: #ffffff;
+}
+
 body {
     font-family: var(--font-family);
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
-    /* READABILITY FIX: Bumped from 300 to 400 for better visibility in sunlight */
     font-weight: 400; 
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased; 
@@ -312,7 +321,7 @@ h1, h2, h3, h4 {
 .bento-card:hover .bento-icon { transform: scale(1.1) rotate(5deg); opacity: 0.3; }
 
 /* =========================================
-   8. MATTERPORT SECTION & FACADE (Performance)
+   8. MATTERPORT SECTION & FACADE
    ========================================= */
 .matterport-section { padding: 4rem 0 8rem; }
 
@@ -367,7 +376,26 @@ html.dark-mode .play-button-circle { background: rgba(40,40,40,0.9); }
 }
 
 /* =========================================
-   10. FOOTER
+   10. STATIC MAP CARD (New)
+   ========================================= */
+.location-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1) !important;
+}
+/* Make the button inside pop on hover */
+.location-card .button-primary {
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+.location-card:hover .button-primary {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* =========================================
+   11. FOOTER
    ========================================= */
 .minimal-footer { 
     padding: 6rem 0 2rem; 
@@ -392,7 +420,7 @@ html.dark-mode .play-button-circle { background: rgba(40,40,40,0.9); }
 .footer-legal-links a:hover, .agency-credit a:hover { color: var(--primary-accent); }
 
 /* =========================================
-   11. UTILITIES & ANIMATIONS
+   12. UTILITIES & ANIMATIONS
    ========================================= */
 .reveal-wrapper { overflow: hidden; }
 .reveal-wrapper > * {
@@ -418,22 +446,10 @@ html.dark-mode .play-button-circle { background: rgba(40,40,40,0.9); }
 .back-to-top:hover { background-color: var(--primary-accent); color: #fff; border-color: var(--primary-accent); }
 
 /* =========================================
-   12. CONVERSION ELEMENTS (India Context)
+   13. CONVERSION ELEMENTS (Mobile Sticky Bar)
    ========================================= */
 
-/* Floating WhatsApp Button */
-.whatsapp-float {
-    position: fixed; bottom: 2rem; right: 2rem;
-    width: 60px; height: 60px;
-    background-color: var(--whatsapp-green);
-    color: white; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-    z-index: 1000;
-    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-.whatsapp-float:hover { transform: scale(1.1); }
-.whatsapp-icon { width: 32px; height: 32px; fill: white; }
+/* NOTE: Floating WhatsApp button removed as requested */
 
 /* Mobile Sticky Bottom Bar (Hidden on Desktop) */
 .mobile-sticky-bar {
@@ -476,7 +492,7 @@ html.dark-mode .mobile-sticky-bar {
 }
 
 /* =========================================
-   13. MEDIA QUERIES (Responsive)
+   14. MEDIA QUERIES (Responsive)
    ========================================= */
 
 /* Tablet & Desktop */
@@ -529,6 +545,7 @@ html.dark-mode .mobile-sticky-bar {
 
     /* Conversion Elements */
     .mobile-sticky-bar { display: flex; }
-    .whatsapp-float { bottom: 5.5rem; right: 1.5rem; width: 50px; height: 50px; }
+    
+    /* Back to top adjustment for sticky bar */
     .back-to-top { bottom: 5.5rem; left: 1.5rem; right: auto; }
 }

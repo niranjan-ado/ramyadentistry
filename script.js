@@ -1,9 +1,9 @@
 /**
  * Dr. Ramya's Dentistry - Core JavaScript
- * Version: 2.0 (Production Ready)
+ * Version: 2.1 (Final Production Build)
  * 
  * Features:
- * 1. Dark/Light Mode with LocalStorage persistence
+ * 1. Dark/Light Mode (Syncs with inline HTML script)
  * 2. Mobile Navigation (Hamburger) with Scroll Locking
  * 3. Sticky Header (Performance-optimized with IntersectionObserver)
  * 4. Scroll Reveal Animations (60fps)
@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         // 1. Check LocalStorage on load (Persistence)
+        // Note: The inline script in HTML handles the initial class add to prevent flash.
+        // This JS ensures the ICON matches that state.
         const savedTheme = localStorage.getItem("theme");
         const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
         

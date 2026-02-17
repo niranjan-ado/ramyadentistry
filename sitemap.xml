@@ -1,24 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+   
+   <!-- HOMEPAGE: Hero Image & Clinic Vibe -->
    <url>
       <loc>https://drramyasdentistry.com/</loc>
-      <lastmod>2026-02-16</lastmod>
+      <lastmod>2026-02-17</lastmod>
+      <changefreq>weekly</changefreq>
       <priority>1.00</priority>
+      <image:image>
+         <image:loc>https://drramyasdentistry.com/assets/images/hero-banner.webp</image:loc>
+         <image:title>Modern Reception at Dr. Ramya's Dentistry</image:title>
+         <image:caption>Advanced dental care reception area in NGGO Colony, Coimbatore.</image:caption>
+      </image:image>
    </url>
+
+   <!-- SERVICES: Treatment Rooms & Equipment -->
    <url>
       <loc>https://drramyasdentistry.com/services.html</loc>
+      <lastmod>2026-02-17</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.80</priority>
+      <image:image>
+         <image:loc>https://drramyasdentistry.com/assets/images/dental-chair-glass.webp</image:loc>
+         <image:title>Advanced Dental Operatory</image:title>
+      </image:image>
    </url>
+
+   <!-- ABOUT: The Team & Play Area -->
    <url>
       <loc>https://drramyasdentistry.com/about.html</loc>
+      <lastmod>2026-02-17</lastmod>
+      <changefreq>monthly</changefreq>
       <priority>0.80</priority>
+      <image:image>
+         <image:loc>https://drramyasdentistry.com/assets/images/waiting-area.webp</image:loc>
+         <image:title>Kid-Friendly Dental Play Area</image:title>
+         <image:caption>Dedicated play zone for pediatric dentistry patients.</image:caption>
+      </image:image>
    </url>
-   <url>
-      <loc>https://drramyasdentistry.com/blog.html</loc>
-      <priority>0.70</priority>
-   </url>
+
+   <!-- CONTACT: Location Map -->
    <url>
       <loc>https://drramyasdentistry.com/contact.html</loc>
+      <lastmod>2026-02-17</lastmod>
       <priority>0.90</priority>
+      <image:image>
+         <image:loc>https://drramyasdentistry.com/assets/images/clinic-exterior.webp</image:loc>
+         <image:title>Dr. Ramya's Dentistry Exterior Signage</image:title>
+      </image:image>
    </url>
+
+   <!-- BLOG -->
+   <url>
+      <loc>https://drramyasdentistry.com/blog.html</loc>
+      <lastmod>2026-02-17</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.70</priority>
+   </url>
+
 </urlset>
