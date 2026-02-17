@@ -7,14 +7,16 @@
     
     <title>Page Not Found | Dr. Ramya's Dentistry</title>
     <meta name="robots" content="noindex, follow">
+    <meta name="theme-color" content="#C4704F">
     <link rel="canonical" href="https://ramyadentistry.com/404.html">
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4704F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path></svg>">
     
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" media="print" onload="this.media='all'">
 
     <link rel="stylesheet" href="./style.css">
     
@@ -26,31 +28,43 @@
             text-align: center;
             background-color: var(--surface-color);
             border-bottom: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
         }
 
         .huge-404 {
-            font-size: clamp(6rem, 15vw, 12rem);
+            font-family: var(--font-serif);
+            font-size: clamp(8rem, 20vw, 16rem);
             font-weight: 700;
-            line-height: 1;
-            color: var(--primary-accent);
-            opacity: 0.2;
-            margin-bottom: -2rem; /* Overlap effect */
-            letter-spacing: -0.05em;
+            line-height: 0.8;
+            color: var(--text-color);
+            opacity: 0.04; /* Very subtle watermark */
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
             user-select: none;
         }
 
+        .error-content {
+            position: relative; z-index: 2;
+        }
+
         .error-title {
-            font-size: clamp(2rem, 5vw, 3.5rem);
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
+            font-family: var(--font-serif);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            color: var(--text-color);
         }
 
         .error-desc {
+            font-family: var(--font-sans);
             font-size: 1.2rem;
             color: var(--text-muted-color);
-            max-width: 600px;
+            max-width: 500px;
             margin: 0 auto 3rem;
+            line-height: 1.6;
         }
 
         /* Sitemap Bento Grid */
@@ -58,7 +72,7 @@
         
         .sitemap-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
             margin-top: 3rem;
         }
@@ -71,47 +85,64 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            transition: all 0.3s ease;
+            transition: all 0.3s var(--ease-out-expo);
             text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
 
-        a.sitemap-card:hover {
+        .sitemap-card:hover {
             transform: translateY(-5px);
             background: var(--surface-hover);
-            border-color: var(--primary-accent);
+            border-color: rgba(196, 112, 79, 0.3);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .sitemap-icon {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-accent);
             margin-bottom: 1rem;
+            opacity: 0.8;
         }
 
-        .sitemap-card h3 { font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-color); }
-        .sitemap-card p { font-size: 0.95rem; color: var(--text-muted-color); margin: 0; }
+        .sitemap-card h3 { 
+            font-family: var(--font-serif);
+            font-size: 1.4rem; 
+            margin-bottom: 0.5rem; 
+            color: var(--text-color); 
+        }
+        
+        .sitemap-card p { 
+            font-family: var(--font-sans);
+            font-size: 0.95rem; 
+            color: var(--text-muted-color); 
+            margin: 0; 
+        }
 
         /* Quick Links List */
         .quick-links-list {
             list-style: none;
             margin-top: 1rem;
-            text-align: left;
+            width: 100%;
         }
         .quick-links-list li {
             margin-bottom: 0.75rem;
             border-bottom: 1px solid var(--border-color);
             padding-bottom: 0.75rem;
         }
+        .quick-links-list li:last-child { border: none; }
+        
         .quick-links-list a {
             font-weight: 500;
             display: flex; justify-content: space-between; align-items: center;
             color: var(--text-color);
             text-decoration: none;
+            font-size: 0.95rem;
         }
         .quick-links-list a:hover { color: var(--primary-accent); }
 
         @media (max-width: 768px) {
-            .main-footer { padding-bottom: 6rem; }
-            .huge-404 { font-size: 8rem; margin-bottom: -1rem; }
+            .huge-404 { font-size: 8rem; opacity: 0.08; }
         }
     </style>
 </head>
@@ -121,27 +152,26 @@
     
     <header class="main-header">
         <nav class="container nav-minimal">
-            <a href="./index.html" class="logo" style="display: flex; align-items: center; gap: 8px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a href="./index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 </svg>
-                <span class="logo-text">Dr. Ramya's Dentistry</span>
+                <span class="logo-text" style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600;">Dr. Ramya's Dentistry</span>
             </a>
             
             <ul class="nav-links" id="nav-links-menu">
                 <li><a href="./index.html">Home</a></li>
                 <li><a href="./services.html">Treatments</a></li>
-                <li><a href="./about.html">The Clinic</a></li>
-                <li><a href="./blog.html">Journal</a></li>
+                <li><a href="./about.html">Clinic</a></li>
                 <li><a href="./contact.html" class="button-primary nav-contact" style="color: #fff;">Book Consultation</a></li>
             </ul>
             
             <div class="nav-controls">
-                <button id="theme-toggle-btn" aria-label="Toggle theme" style="background:none; border:none; cursor:pointer; color:inherit; display:flex; align-items:center;">
+                <button id="theme-toggle-btn" aria-label="Toggle theme" style="background:none; border:none; cursor:pointer; color:inherit; display:flex;">
                     <span class="material-icons-outlined" id="theme-icon">dark_mode</span>
                 </button>
-                <button class="hamburger" id="hamburger-button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links-menu" style="background:none; border:none; cursor:pointer; color:inherit; display:flex; align-items:center;">
-                    <span class="material-icons-outlined" aria-hidden="true">menu</span>
+                <button class="hamburger" id="hamburger-button" aria-label="Open menu" style="background:none; border:none; cursor:pointer; color:inherit;">
+                    <span class="material-icons-outlined">menu</span>
                 </button>
             </div>
         </nav>
@@ -149,11 +179,11 @@
     
     <main>
         <section class="error-hero">
-            <div class="container reveal-wrapper">
-                <div class="huge-404">404</div>
+            <div class="huge-404">404</div>
+            <div class="container error-content reveal-wrapper">
                 <h1 class="error-title">This page has been extracted.</h1>
                 <p class="error-desc">We can't seem to find the spot you're looking for. It might have been moved, removed, or never existed. But don't worry, we can get you back on track.</p>
-                <a href="./index.html" class="button-primary">Return to Home</a>
+                <a href="./index.html" class="button-primary">Return to Homepage</a>
             </div>
         </section>
 
@@ -161,7 +191,7 @@
             <div class="container container-narrow">
                 <div class="reveal-wrapper">
                     <div class="section-title text-center">
-                        <h2>Find your way.</h2>
+                        <h2 style="font-family: var(--font-serif); margin-bottom: 0.5rem;">Find your way.</h2>
                         <p class="section-subtitle">Here are some helpful links to get you where you need to go.</p>
                     </div>
                 </div>
@@ -186,13 +216,12 @@
                         <p>Schedule a consultation or visit us.</p>
                     </a>
 
-                    <div class="sitemap-card">
+                    <div class="sitemap-card" style="cursor: default;">
                         <span class="material-icons-outlined sitemap-icon">article</span>
                         <h3>Popular Reads</h3>
-                        <ul class="quick-links-list" style="width: 100%;">
+                        <ul class="quick-links-list">
                             <li><a href="./blog.html">Smile Transformation Guide <span class="material-icons-outlined" style="font-size: 1rem;">arrow_forward</span></a></li>
                             <li><a href="./blog.html">Pain-Free Root Canals <span class="material-icons-outlined" style="font-size: 1rem;">arrow_forward</span></a></li>
-                            <li><a href="./blog.html">Pediatric Dental Tips <span class="material-icons-outlined" style="font-size: 1rem;">arrow_forward</span></a></li>
                         </ul>
                     </div>
 
@@ -205,48 +234,44 @@
         <div class="container">
             <div class="footer-grid-minimal">
                 <div class="footer-brand">
-                    <span class="logo-text" style="display:flex; align-items:center; gap:8px;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <span class="logo-text" style="display:flex; align-items:center; gap:8px; font-family: var(--font-serif); font-size: 1.2rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg>
                         Dr. Ramya's Dentistry
                     </span>
                     <p>Advanced dental care in NGGO Colony, Coimbatore.</p>
-                    <p style="color: var(--text-muted-color); font-size: 0.9rem; margin-top: 0.5rem;">Mon - Sat: 10 AM to 9 PM</p>
                     <a href="tel:+918870612296" class="footer-phone">+91 88706 12296</a>
                 </div>
                 <div class="footer-nav">
                     <ul>
                         <li><a href="./services.html">Treatments</a></li>
-                        <li><a href="./about.html">The Clinic</a></li>
-                        <li><a href="./blog.html">Journal</a></li>
+                        <li><a href="./about.html">Clinic</a></li>
                         <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <nav class="footer-legal-links">
-                    <span>© 2026 Dr. Ramya's Dentistry</span> |
-                    <a href="./privacy.html">Privacy Policy</a>
+                    <span>© 2026 Dr. Ramya's Dentistry</span>
+                    <a href="./privacy.html">Privacy</a>
                 </nav>
             </div>
         </div>
     </footer>
 
-    <div class="mobile-sticky-bar" style="grid-template-columns: 1fr;">
-        <a href="tel:+918870612296" class="sticky-btn call" style="border-right: none;">
+    <!-- MOBILE STICKY BAR -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+918870612296" class="sticky-btn call">
             <span class="material-icons-outlined">call</span>
             Call Now
         </a>
     </div>
 
-    <a href="#" class="back-to-top" id="back-to-top-btn" aria-label="Scroll back to top">
-        <span class="material-icons-outlined" aria-hidden="true">arrow_upward</span>
-    </a>
-    
     <script src="./script.js" defer></script>
     
     <script>
+        // Critical Theme Init
         (function() {
             const savedTheme = localStorage.getItem("theme");
             const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;

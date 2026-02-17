@@ -2,61 +2,71 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
    
-   <!-- HOMEPAGE: Hero Image & Clinic Vibe -->
+   <!-- HOMEPAGE: The Hub -->
    <url>
-      <loc>https://drramyasdentistry.com/</loc>
+      <loc>https://ramyadentistry.com/</loc>
       <lastmod>2026-02-17</lastmod>
       <changefreq>weekly</changefreq>
       <priority>1.00</priority>
       <image:image>
-         <image:loc>https://drramyasdentistry.com/assets/images/hero-banner.webp</image:loc>
-         <image:title>Modern Reception at Dr. Ramya's Dentistry</image:title>
-         <image:caption>Advanced dental care reception area in NGGO Colony, Coimbatore.</image:caption>
+         <image:loc>https://ramyadentistry.com/assets/images/hero-banner.webp</image:loc>
+         <image:title>Dr. Ramya's Dentistry Reception</image:title>
+         <image:caption>Premium dental care facility in NGGO Colony, Coimbatore.</image:caption>
       </image:image>
    </url>
 
-   <!-- SERVICES: Treatment Rooms & Equipment -->
+   <!-- SERVICES: Treatments & Operatories -->
    <url>
-      <loc>https://drramyasdentistry.com/services.html</loc>
+      <loc>https://ramyadentistry.com/services.html</loc>
       <lastmod>2026-02-17</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.80</priority>
-      <image:image>
-         <image:loc>https://drramyasdentistry.com/assets/images/dental-chair-glass.webp</image:loc>
-         <image:title>Advanced Dental Operatory</image:title>
-      </image:image>
-   </url>
-
-   <!-- ABOUT: The Team & Play Area -->
-   <url>
-      <loc>https://drramyasdentistry.com/about.html</loc>
-      <lastmod>2026-02-17</lastmod>
-      <changefreq>monthly</changefreq>
-      <priority>0.80</priority>
-      <image:image>
-         <image:loc>https://drramyasdentistry.com/assets/images/waiting-area.webp</image:loc>
-         <image:title>Kid-Friendly Dental Play Area</image:title>
-         <image:caption>Dedicated play zone for pediatric dentistry patients.</image:caption>
-      </image:image>
-   </url>
-
-   <!-- CONTACT: Location Map -->
-   <url>
-      <loc>https://drramyasdentistry.com/contact.html</loc>
-      <lastmod>2026-02-17</lastmod>
       <priority>0.90</priority>
       <image:image>
-         <image:loc>https://drramyasdentistry.com/assets/images/clinic-exterior.webp</image:loc>
-         <image:title>Dr. Ramya's Dentistry Exterior Signage</image:title>
+         <image:loc>https://ramyadentistry.com/assets/images/clinic-2.webp</image:loc>
+         <image:title>Advanced Dual Operatory Setup</image:title>
+         <image:caption>State-of-the-art dental chairs and microscope equipment.</image:caption>
       </image:image>
    </url>
 
-   <!-- BLOG -->
+   <!-- ABOUT: The Clinic & Pediatric Zone -->
    <url>
-      <loc>https://drramyasdentistry.com/blog.html</loc>
+      <loc>https://ramyadentistry.com/about.html</loc>
+      <lastmod>2026-02-17</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.80</priority>
+      <image:image>
+         <image:loc>https://ramyadentistry.com/assets/images/waiting-area.webp</image:loc>
+         <image:title>Children's Dental Play Area</image:title>
+         <image:caption>A dedicated zone to reduce pediatric dental anxiety.</image:caption>
+      </image:image>
+   </url>
+
+   <!-- CONTACT: Booking & Location -->
+   <url>
+      <loc>https://ramyadentistry.com/contact.html</loc>
+      <lastmod>2026-02-17</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.90</priority>
+      <image:image>
+         <image:loc>https://ramyadentistry.com/assets/images/reception-alt.webp</image:loc>
+         <image:title>Patient Consultation Lounge</image:title>
+      </image:image>
+   </url>
+
+   <!-- JOURNAL: Content Marketing -->
+   <url>
+      <loc>https://ramyadentistry.com/blog.html</loc>
       <lastmod>2026-02-17</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.70</priority>
+   </url>
+
+   <!-- LEGAL: Trust Signals -->
+   <url>
+      <loc>https://ramyadentistry.com/privacy.html</loc>
+      <lastmod>2026-02-17</lastmod>
+      <changefreq>yearly</changefreq>
+      <priority>0.30</priority>
    </url>
 
 </urlset>

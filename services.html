@@ -8,26 +8,27 @@
     <title>Treatments & Services | Dr. Ramya's Dentistry Coimbatore</title>
     <meta name="description" content="Explore our world-class dental treatments in Coimbatore, including Invisalign, Smile Designing, Dental Implants, and pain-free Root Canals.">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://drramyasdentistry.com/services.html">
+    <meta name="theme-color" content="#C4704F">
+    <link rel="canonical" href="https://ramyadentistry.com/services.html">
 
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://drramyasdentistry.com/services.html">
+    <meta property="og:url" content="https://ramyadentistry.com/services.html">
     <meta property="og:title" content="Advanced Dental Treatments | Dr. Ramya's Dentistry">
     <meta property="og:description" content="Precision dentistry: Invisalign, Implants, and Smile Design.">
     <meta property="og:image" content="./assets/images/hero-banner.webp">
     
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C4704F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'></path></svg>">
     
+    <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" media="print" onload="this.media='all'">
 
     <link rel="stylesheet" href="./style.css">
     
     <style>
         /* --- PAGE SPECIFIC STYLES --- */
-        /* Note: Global elements like Sticky Bar are now in style.css */
         
         .page-header {
             padding: 10rem 0 6rem;
@@ -37,9 +38,10 @@
         }
         
         .page-header h1 {
-            font-size: clamp(3rem, 5vw, 4.5rem);
-            line-height: 1.1;
-            letter-spacing: -0.04em;
+            font-family: var(--font-serif);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 1.05;
+            letter-spacing: -0.02em;
             margin-bottom: 1rem;
             color: var(--text-color);
         }
@@ -70,28 +72,31 @@
             overflow: hidden;
             aspect-ratio: 4 / 3;
             background-color: var(--surface-color);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            border: 1px solid var(--border-color);
         }
 
         html.dark-mode .treatment-visual { box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
 
-        .treatment-visual img, .treatment-visual svg {
+        .treatment-visual img {
             width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transition: transform 0.8s var(--ease-out-expo);
         }
 
-        .treatment-row:hover .treatment-visual img,
-        .treatment-row:hover .treatment-visual svg {
-            transform: scale(1.03);
+        .treatment-row:hover .treatment-visual img {
+            transform: scale(1.05);
         }
 
         .treatment-text h2 {
-            font-size: clamp(2rem, 3vw, 2.8rem);
+            font-family: var(--font-serif);
+            font-size: clamp(2.2rem, 4vw, 3.2rem);
             margin-bottom: 1.5rem;
             color: var(--text-color);
+            line-height: 1.1;
         }
 
         .treatment-text p {
+            font-family: var(--font-sans);
             font-size: 1.1rem;
             color: var(--text-muted-color);
             margin-bottom: 2rem;
@@ -107,14 +112,22 @@
         .treatment-features li {
             display: flex; align-items: center; gap: 0.75rem;
             font-size: 1rem; color: var(--text-color);
-            margin-bottom: 1rem; font-weight: 500;
+            margin-bottom: 0.8rem; font-weight: 500;
+            font-family: var(--font-sans);
         }
 
-        .treatment-features .material-icons-outlined { color: var(--primary-accent); }
+        .treatment-features .material-icons-outlined { 
+            color: var(--primary-accent); 
+            font-size: 1.2rem;
+        }
         
-        /* Mobile Adjustments */
+        /* Last item no border */
+        .treatment-row:last-of-type { border-bottom: none; }
+
         @media (max-width: 768px) {
-            .main-footer { padding-bottom: 6rem; }
+            .treatment-row { gap: 2rem; padding: 4rem 0; }
+            .treatment-text p { max-width: 100%; }
+            .treatment-visual { aspect-ratio: 16/10; }
         }
     </style>
 
@@ -155,27 +168,26 @@
     
     <header class="main-header">
         <nav class="container nav-minimal">
-            <a href="./index.html" class="logo" style="display: flex; align-items: center; gap: 8px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <a href="./index.html" class="logo" style="display: flex; align-items: center; gap: 10px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                 </svg>
-                <span class="logo-text">Dr. Ramya's Dentistry</span>
+                <span class="logo-text" style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600;">Dr. Ramya's Dentistry</span>
             </a>
             
             <ul class="nav-links" id="nav-links-menu">
                 <li><a href="./index.html">Home</a></li>
-                <li><a href="./services.html" class="active" aria-current="page">Treatments</a></li>
-                <li><a href="./about.html">The Clinic</a></li>
-                <li><a href="./blog.html">Journal</a></li>
+                <li><a href="./services.html" class="active">Treatments</a></li>
+                <li><a href="./about.html">Clinic</a></li>
                 <li><a href="./contact.html" class="button-primary nav-contact" style="color: #fff;">Book Consultation</a></li>
             </ul>
             
             <div class="nav-controls">
-                <button id="theme-toggle-btn" aria-label="Toggle theme" style="background:none; border:none; cursor:pointer; color:inherit; display:flex; align-items:center;">
+                <button id="theme-toggle-btn" aria-label="Toggle theme" style="background:none; border:none; cursor:pointer; color:inherit; display:flex;">
                     <span class="material-icons-outlined" id="theme-icon">dark_mode</span>
                 </button>
-                <button class="hamburger" id="hamburger-button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links-menu" style="background:none; border:none; cursor:pointer; color:inherit; display:flex; align-items:center;">
-                    <span class="material-icons-outlined" aria-hidden="true">menu</span>
+                <button class="hamburger" id="hamburger-button" aria-label="Open menu" style="background:none; border:none; cursor:pointer; color:inherit;">
+                    <span class="material-icons-outlined">menu</span>
                 </button>
             </div>
         </nav>
@@ -184,171 +196,178 @@
     <main>
         <header class="page-header">
             <div class="container container-narrow reveal-wrapper">
-                <h1 style="opacity: 1 !important; transform: none !important; visibility: visible !important;">World-Class Treatments.</h1>
-                <p class="lead-text" style="color: var(--text-muted-color); opacity: 1 !important; transform: none !important; visibility: visible !important;">Precision-engineered dental care tailored to the exact architecture of your smile.</p>
+                <h1>World-Class Treatments.</h1>
+                <p class="lead-text" style="color: var(--text-muted-color); font-family: var(--font-sans);">Precision-engineered dental care tailored to the exact architecture of your smile.</p>
             </div>
         </header>
 
+        <!-- 1. INVISALIGN -->
         <section class="container">
             <div class="treatment-row reveal-wrapper">
                 <div class="treatment-text">
                     <h2>Invisalign & Aligners</h2>
                     <p>The modern, invisible path to a perfectly aligned smile. Custom-molded to your teeth, Invisalign offers a comfortable, removable alternative to traditional braces without compromising on precision.</p>
                     <ul class="treatment-features">
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Virtually invisible aesthetics</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Removable for normal eating and brushing</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Predictable, computer-mapped results</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Virtually invisible aesthetics</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Removable for normal eating</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Computer-mapped results (iTero)</li>
                     </ul>
                     <a href="./contact.html" class="button-secondary">Consult for Invisalign</a>
                 </div>
                 <div class="treatment-visual">
                     <picture>
                         <source srcset="./assets/images/hero-banner.webp" type="image/webp">
-                        <img src="./assets/images/hero-banner.jpg" alt="Modern clinic reception area at Dr. Ramya's Dentistry" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/images/hero-banner.jpg" alt="Invisalign Treatment" loading="lazy">
                     </picture>
                 </div>
             </div>
         </section>
 
+        <!-- 2. SMILE DESIGN -->
         <section class="container">
             <div class="treatment-row reverse reveal-wrapper">
                 <div class="treatment-text">
                     <h2>Smile Designing</h2>
                     <p>A bespoke approach to facial aesthetics. We don't just fix teeth; we analyze your facial symmetry, lip line, and jaw structure to craft a smile that feels entirely natural and distinctly yours.</p>
                     <ul class="treatment-features">
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Digital smile mapping</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Ultra-thin ceramic veneers</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Gum contouring and aesthetic balance</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Digital smile mapping (DSD)</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Ultra-thin ceramic veneers</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Gum contouring for balance</li>
                     </ul>
                     <a href="./contact.html" class="button-secondary">Design Your Smile</a>
                 </div>
                 <div class="treatment-visual">
                     <picture>
                         <source srcset="./assets/images/reception-alt.webp" type="image/webp">
-                        <img src="./assets/images/reception-alt.jpg" alt="Welcoming seating area at Dr. Ramya's Dentistry" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/images/reception-alt.jpg" alt="Smile Design" loading="lazy">
                     </picture>
                 </div>
             </div>
         </section>
 
+        <!-- 3. IMPLANTS -->
         <section class="container">
             <div class="treatment-row reveal-wrapper">
                 <div class="treatment-text">
                     <h2>Dental Implants</h2>
-                    <p>Permanent, secure, and indistinguishable from natural teeth. Engineered from biocompatible titanium, our implants integrate seamlessly with your jawbone to restore full function and confidence.</p>
+                    <p>Permanent, secure, and indistinguishable from natural teeth. Engineered from biocompatible titanium, our implants integrate seamlessly with your jawbone to restore full function.</p>
                     <ul class="treatment-features">
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Lifelong structural durability</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Prevents bone loss and facial sagging</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Look, feel, and function like natural teeth</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Lifelong structural durability</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Prevents facial sagging</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Biocompatible Titanium/Zirconia</li>
                     </ul>
                     <a href="./contact.html" class="button-secondary">Learn About Implants</a>
                 </div>
                 <div class="treatment-visual">
                     <picture>
                         <source srcset="./assets/images/clinic-2.webp" type="image/webp">
-                        <img src="./assets/images/clinic-2.jpg" alt="State-of-the-art dental treatment room" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/images/clinic-2.jpg" alt="Dental Implants" loading="lazy">
                     </picture>
                 </div>
             </div>
         </section>
 
+        <!-- 4. ROOT CANALS -->
         <section class="container">
             <div class="treatment-row reverse reveal-wrapper">
                 <div class="treatment-text">
                     <h2>Pain-Free Root Canals</h2>
-                    <p>Endodontics redefined. By utilizing advanced magnification and state-of-the-art anesthesia protocols, we ensure your root canal procedure is completely comfortable, highly precise, and permanently relieves your pain.</p>
+                    <p>Endodontics redefined. By utilizing advanced magnification and state-of-the-art anesthesia protocols, we ensure your root canal procedure is completely comfortable and precise.</p>
                     <ul class="treatment-features">
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Microscope-assisted precision</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Advanced pain-management protocols</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Single-visit procedures available</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Microscope-assisted precision</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Advanced anesthesia protocols</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Single-visit procedures available</li>
                     </ul>
                     <a href="./contact.html" class="button-secondary">Relieve Dental Pain</a>
                 </div>
                 <div class="treatment-visual">
                     <picture>
                         <source srcset="./assets/images/clinic-2.webp" type="image/webp">
-                        <img src="./assets/images/clinic-2.jpg" alt="Advanced clinical equipment for pain-free dentistry" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/images/clinic-2.jpg" alt="Microscope Dentistry" loading="lazy">
                     </picture>
                 </div>
             </div>
         </section>
 
-        <section class="container" style="border-bottom: none;">
-            <div class="treatment-row reveal-wrapper" style="border-bottom: none;">
+        <!-- 5. CHILD DENTISTRY -->
+        <section class="container">
+            <div class="treatment-row reveal-wrapper">
                 <div class="treatment-text">
                     <h2>Child Dentistry</h2>
-                    <p>Creating positive associations with dental health from day one. Our pediatric approach focuses on preventive care, gentle treatments, and fostering a calming, anxiety-free environment for your little ones.</p>
+                    <p>Creating positive associations with dental health from day one. Our pediatric approach focuses on preventive care, gentle treatments, and fostering a calming, anxiety-free environment.</p>
                     <ul class="treatment-features">
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Fear-free, gentle environment</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Preventive sealants and fluoride treatments</li>
-                        <li><span class="material-icons-outlined" translate="no">check_circle</span> Habit counseling and growth monitoring</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Fear-free, gentle environment</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Preventive sealants</li>
+                        <li><span class="material-icons-outlined">check_circle</span> Growth & habit monitoring</li>
                     </ul>
                     <a href="./contact.html" class="button-secondary">Book Pediatric Visit</a>
                 </div>
                 <div class="treatment-visual">
                     <picture>
                         <source srcset="./assets/images/waiting-area.webp" type="image/webp">
-                        <img src="./assets/images/waiting-area.jpg" alt="Kid friendly dental play area" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                        <img src="./assets/images/waiting-area.jpg" alt="Pediatric Dentistry" loading="lazy">
                     </picture>
                 </div>
             </div>
         </section>
 
+        <!-- CTA -->
         <section class="bg-surface" style="padding: 8rem 0; text-align: center; border-top: 1px solid var(--border-color);">
             <div class="container container-narrow reveal-wrapper">
-                <h2 style="font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">Ready to transform your smile?</h2>
-                <p style="color: var(--text-muted-color); font-size: 1.2rem; margin-bottom: 2.5rem;">Schedule a comprehensive consultation with Dr. Ramya today.</p>
-                <a href="./contact.html" class="button-primary" style="padding: 16px 40px; font-size: 1.1rem;">Request an Appointment</a>
+                <h2 style="font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1.5rem;">Ready to transform your smile?</h2>
+                <p style="color: var(--text-muted-color); font-size: 1.2rem; margin-bottom: 2.5rem; font-family: var(--font-sans);">Schedule a comprehensive consultation with Dr. Ramya today.</p>
+                <a href="./contact.html" class="button-primary">Request an Appointment</a>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="main-footer minimal-footer">
         <div class="container">
             <div class="footer-grid-minimal">
                 <div class="footer-brand">
-                    <span class="logo-text" style="display:flex; align-items:center; gap:8px;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <span class="logo-text" style="display:flex; align-items:center; gap:8px; font-family: var(--font-serif); font-size: 1.2rem;">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
                         </svg>
                         Dr. Ramya's Dentistry
                     </span>
                     <p>Advanced dental care in NGGO Colony, Coimbatore.</p>
-                    <p style="color: var(--text-muted-color); font-size: 0.9rem; margin-top: 0.5rem;">Mon - Sat: 10 AM to 9 PM</p>
                     <a href="tel:+918870612296" class="footer-phone">+91 88706 12296</a>
                 </div>
                 <div class="footer-nav">
                     <ul>
                         <li><a href="./services.html">Treatments</a></li>
-                        <li><a href="./about.html">The Clinic</a></li>
-                        <li><a href="./blog.html">Journal</a></li>
+                        <li><a href="./about.html">Clinic</a></li>
                         <li><a href="./contact.html">Contact</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
                 <nav class="footer-legal-links">
-                    <span>© 2026 Dr. Ramya's Dentistry</span> |
-                    <a href="./privacy.html">Privacy Policy</a>
+                    <span>© 2026 Dr. Ramya's Dentistry</span>
+                    <a href="./privacy.html">Privacy</a>
                 </nav>
             </div>
         </div>
     </footer>
 
-    <div class="mobile-sticky-bar" style="grid-template-columns: 1fr;">
-        <a href="tel:+918870612296" class="sticky-btn call" style="border-right: none;">
+    <!-- MOBILE STICKY BAR -->
+    <div class="mobile-sticky-bar">
+        <a href="tel:+918870612296" class="sticky-btn call">
             <span class="material-icons-outlined">call</span>
             Call Now
         </a>
     </div>
 
     <a href="#" class="back-to-top" id="back-to-top-btn" aria-label="Scroll back to top">
-        <span class="material-icons-outlined" aria-hidden="true">arrow_upward</span>
+        <span class="material-icons-outlined">arrow_upward</span>
     </a>
     
     <script src="./script.js" defer></script>
     
     <script>
+        // Critical Theme Init
         (function() {
             const savedTheme = localStorage.getItem("theme");
             const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
